@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-# 🔧 Make mvnw executable before running it
-RUN chmod +x mvnw && ./mvnw clean install
+RUN chmod +x mvnw && ./mvnw clean package
 
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "target/<your-jar-name>.jar"]
