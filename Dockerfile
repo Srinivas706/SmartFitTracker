@@ -6,4 +6,4 @@ COPY . .
 
 RUN chmod +x mvnw && ./mvnw clean package
 
-CMD ["java", "-jar", "target/<your-jar-name>.jar"]
+CMD ["java", "-jar", "target/smartfittracker-0.0.1-SNAPSHOT.jar"]
