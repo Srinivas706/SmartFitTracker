@@ -2,8 +2,12 @@ services:
   - type: web
     name: smartfit-api
     env: java
-    buildCommand: ./mvnw clean install
-    startCommand: ./mvnw spring-boot:run
+    plan: free
+    buildCommand: ./mvnw clean package
+    startCommand: java -jar target/SmartFitTracker-0.0.1-SNAPSHOT.jar
+    healthCheckPath: /api/workouts
     envVars:
-      - key: SPRING_PROFILES_ACTIVE
-        value: default
+      - key: SERVER_PORT
+        value: 8080
+      - key: MONGO_DB_URI
+        sync: false
