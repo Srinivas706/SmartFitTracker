@@ -2,6 +2,8 @@ package com.smartfit.SmartFitTracker;
 
 import java.util.Date;
 import java.util.Scanner;
+import java.util.InputMismatchException;
+
 
 import com.smartfit.SmartFitTracker.model.*;
 import com.smartfit.SmartFitTracker.repository.*;
@@ -48,8 +50,15 @@ public class SmartFitCLI implements CommandLineRunner {
             System.out.println("11. Exit");
             System.out.print("Enter your choice: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            int choice = -1;
+            try {
+                choice = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine(); // clear the invalid input
+                return;
+            }
+
 
             switch (choice) {
                 case 1:
