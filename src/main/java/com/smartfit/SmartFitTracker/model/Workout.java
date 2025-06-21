@@ -9,6 +9,7 @@ import java.util.Date;
 @Document(collection = "workouts")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Workout {
     @Id
     private String id;
@@ -17,14 +18,5 @@ public class Workout {
     private int durationMins;
     private int caloriesBurned;
     private Date date;
-
-    public Workout(String id, String userId, String type, int durationMins, int caloriesBurned, Date date) {
-        this.id = id;
-        this.userId = userId;
-        this.type = type;
-        this.durationMins = durationMins;
-        this.caloriesBurned = caloriesBurned;
-        this.date = date;
-    }
 }
 
