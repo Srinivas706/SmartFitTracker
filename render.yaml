@@ -3,7 +3,7 @@ services:
     name: smartfit-api
     env: java
     buildCommand: ./mvnw clean install
-    startCommand: java -jar target/*.jar
+    startCommand: ./mvnw spring-boot:run
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: default
