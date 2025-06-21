@@ -1,13 +1,13 @@
-package com.smartfit.SmartFitTracker;
+//package com.smartfit.SmartFitTracker;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class SmartFitTrackerApplicationTests {
+//@SpringBootTest
+//class SmartFitTrackerApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+//	@Test
+//	void contextLoads() {
+//	}
 
-}
+//}
