@@ -10,9 +10,11 @@ import com.smartfit.SmartFitTracker.repository.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("cli")
 public class SmartFitCLI implements CommandLineRunner {
 
     @Autowired
