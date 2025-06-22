@@ -55,6 +55,7 @@ public class SmartFitCLI implements CommandLineRunner {
             int choice = -1;
             try {
                 choice = scanner.nextInt();
+                scanner.nextLine(); // Consume newline left-over
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.nextLine(); // clear the invalid input
