@@ -3,11 +3,13 @@ package com.smartfit.SmartFitTracker.controller;
 import com.smartfit.SmartFitTracker.model.User;
 import com.smartfit.SmartFitTracker.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api/users")
 public class UserController {
 
@@ -15,8 +17,10 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public String getAllUsers(Model model) {
+        List<User> users = userRepository.findAll();
+        model.addAttribute("users", users);
+        return "users";
     }
 
     // 👇 Add this below
@@ -27,8 +31,8 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User newUser) {
-        return userRepository.save(newUser);
+    public User createUser(@RequestBody User user) {
+        return userRepository.save(user);
     }
 
     @PutMapping("/{id}")

@@ -3,11 +3,13 @@ package com.smartfit.SmartFitTracker.controller;
 import com.smartfit.SmartFitTracker.model.Meal;
 import com.smartfit.SmartFitTracker.repository.MealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api/meals")
 public class MealController {
 
@@ -15,12 +17,14 @@ public class MealController {
     private MealRepository mealRepository;
 
     @PostMapping
-    public Meal addMeal(@RequestBody Meal meal) {
+    public Meal createMeal(@RequestBody Meal meal) {
         return mealRepository.save(meal);
     }
 
     @GetMapping
-    public List<Meal> getMeals() {
-        return mealRepository.findAll();
+    public String getAllMeals(Model model) {
+        List<Meal> meals = mealRepository.findAll();
+        model.addAttribute("meals", meals);
+        return "meals";
     }
 }
